@@ -27,3 +27,4 @@ El usuario podrá obtener mediante un identificador de tarea en todo momento el 
 - [Pytest](https://pytest.org) como framework para desarrollar los test unitarios.
 - [Docker](https://www.docker.com) para la virtualización de nuestro servicio.
 - [EKS](https://aws.amazon.com/eks/) para el despliegue, ya que para el despliegue final usaremos [kubernetes](https://kubernetes.io) para orquestar los contenedores.
+- [Emacs](https://www.gnu.org/software/emacs/) (con [evil](https://github.com/emacs-evil/evil) mode) y [neovim](https://neovim.io) para el desarrollo ;)
