@@ -1,60 +1,62 @@
 version: '3'
 
-networks:
-
 services:
 
 ###########################################
 ################ Components ###############
 ###########################################
 
-   api:
-     image: python:3.7.0
-     ports:
-      - "8000:80"
-    volumes:
-    restart: always
-    #command: tail -f /dev/null
+    api:
+        # image: python:3.7.0
+        image: python-pyramid
+        build: ./docker/pyramid
+        ports:
+            - "8000:80"
+        volumes:
+          - ./src:/opt/stream_ai
+        restart: always
+        # command: tail -f /dev/null
+        command: python /opt/stream_ai/api.py
 
-  # Zookeeper and Kafka from Confluent Plaform.
-  # See: https://github.com/confluentinc/cp-docker-images/blob/3.3.x/examples/kafka-single-node/docker-compose.yml
-  zookeeper:
-    image: confluentinc/cp-zookeeper:3.3.0
-    environment:
-      ZOOKEEPER_CLIENT_PORT: 2181
-      ZOOKEEPER_TICK_TIME: 2000
-  kafka:
-    image: confluentinc/cp-kafka:3.3.0
-    depends_on:
-      - zookeeper
-    networks:
-      default:
-        # alias required for visibility from zookeeper container
-        aliases:
-          - kafka
-    environment:
-      KAFKA_BROKER_ID: 1
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      KAFKA_GROUP_MAX_SESSION_TIMEOUT_MS: 600000
-      TOPIC_METADATA_REFRESH_INTERVAL_MS: 1000
-      KAFKA_NUM_PARTITIONS: 20
-      KAFKA_DELETE_TOPIC_ENABLE: "true"
-      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
-    restart: always
+  # # Zookeeper and Kafka from Confluent Plaform.
+  # # See: https://github.com/confluentinc/cp-docker-images/blob/3.3.x/examples/kafka-single-node/docker-compose.yml
+  # zookeeper:
+  #   image: confluentinc/cp-zookeeper:3.3.0
+  #   environment:
+  #     ZOOKEEPER_CLIENT_PORT: 2181
+  #     ZOOKEEPER_TICK_TIME: 2000
+  # kafka:
+  #   image: confluentinc/cp-kafka:3.3.0
+  #   depends_on:
+  #     - zookeeper
+  #   networks:
+  #     default:
+  #       # alias required for visibility from zookeeper container
+  #       aliases:
+  #         - kafka
+  #   environment:
+  #     KAFKA_BROKER_ID: 1
+  #     KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+  #     KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+  #     KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+  #     KAFKA_GROUP_MAX_SESSION_TIMEOUT_MS: 600000
+  #     TOPIC_METADATA_REFRESH_INTERVAL_MS: 1000
+  #     KAFKA_NUM_PARTITIONS: 20
+  #     KAFKA_DELETE_TOPIC_ENABLE: "true"
+  #     KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+  #   restart: always
 
 
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.2.0
-    environment:
-      - discovery.type=single-node
-      - http.host=0.0.0.0
-      - transport.host=127.0.0.1
-      - xpack.security.enabled=false
-      - ES_JAVA_OPTS=-Xms250m -Xmx250m
-    ports:
-      - "9206:9200"
-      - "9306:9300"
-    restart: always
-    #command: tail -f /dev/null
+  # elasticsearch:
+  #   image: docker.elastic.co/elasticsearch/elasticsearch:7.2.0
+  #   environment:
+  #     - discovery.type=single-node
+  #     - http.host=0.0.0.0
+  #     - transport.host=127.0.0.1
+  #     - xpack.security.enabled=false
+  #     - ES_JAVA_OPTS=-Xms250m -Xmx250m
+  #   ports:
+  #     - "9206:9200"
+  #     - "9306:9300"
+  #   restart: always
+  #   #command: tail -f /dev/null
