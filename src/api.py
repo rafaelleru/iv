@@ -4,7 +4,7 @@ from pyramid.response import Response
 
 from pyramid.view import view_config, view_defaults
 
-# from job import Job
+from src.job import Job
 
 import random
 import string
