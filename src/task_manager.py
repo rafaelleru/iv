@@ -8,7 +8,10 @@ class TaskManager(object):
 		self.task_queue[job["id"]] += [job]
 
 	def get_jobs(self):
-		return self.task_queue.values()
+		jobs = []
+		for k, v in self.task_queue.items():
+			jobs += v
+		return jobs
 
 	def get_user_jobs(self, id):
 		return self.task_queue[id]
