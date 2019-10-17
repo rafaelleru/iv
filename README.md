@@ -10,7 +10,7 @@ El creciente número de aplicaciones de inteligencia artificial en el mercado no
 
 AI remote stream pretende mitigar algunas de las limitaciones planteadas anteriormente poniendo al alcance de los usuarios una infraestructura en la que poder usar dichos modelos inteligentes en entornos de producción. El sistema permitirá al usuario ejecutar tareas de clasificación de datos en la nube sin tener que disponer de una infrastructura propia.
 
-El sistema permitira generar tareas mediante un servicio y obtener los resultados una vez estos esten listos todo mediante un servicio REST. 
+El sistema permitira generar tareas mediante un servicio y obtener los resultados una vez estos esten listos todo mediante un servicio REST.
 
 # Solución planteada
 
@@ -29,3 +29,9 @@ El usuario podrá obtener mediante un identificador de tarea en todo momento el 
 - [Docker](https://www.docker.com) para la virtualización de nuestro servicio.
 - [EKS](https://aws.amazon.com/eks/) para el despliegue, ya que para el despliegue final usaremos [kubernetes](https://kubernetes.io) para orquestar los contenedores.
 - [Emacs](https://www.gnu.org/software/emacs/) (con [evil](https://github.com/emacs-evil/evil) mode) y [neovim](https://neovim.io) para el desarrollo ;)
+
+## Integracion continua
+
+Para la integración continua vamos a usar travis, no es necesario usar herramientas tipo make por el momento ya que solo queremos ejecutar los tests de nuestro proyecto.
+
+Para configurar travis solo ha sido necesario dar de alta el proyecto en la web y añadir el repositorio, tras esto hemos añadido el archivo `.travis.yml` para ejecutar todo el proceso de integración continua en cada commit
