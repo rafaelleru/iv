@@ -2,8 +2,8 @@ version: 2
 jobs:
   build:
     docker:
-      - working_directory: ~/iv
       - image: circleci/python:3.6.1
+      - working_directory: ~/iv
         # environment:
         #   PIPENV_VENV_IN_PROJECT: true
 
