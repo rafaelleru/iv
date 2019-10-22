@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/rafaelleru/iv.svg?branch=master)](https://travis-ci.org/rafaelleru/iv)
+[![CircleCI](https://circleci.com/gh/rafaelleru/iv.svg?style=svg)](https://circleci.com/gh/rafaelleru/iv)
 
 # AI remote strem
 
