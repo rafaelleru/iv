@@ -7,11 +7,11 @@ jobs:
         environment:
           PIPENV_VENV_IN_PROJECT: true
 
-      - steps:
-          - run:
-              name: Install dependencies
-              command: pip install -r requirements.txt
+    steps:
+      - run:
+          name: Install dependencies
+          command: pip install -r requirements.txt
 
-          - tests:
-              name: Run tests
-              command: pytest ~/iv/tests
+      - tests:
+          name: Run tests
+          command: pytest ~/iv/tests
