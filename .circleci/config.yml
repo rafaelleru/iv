@@ -6,4 +6,5 @@
      steps:
        - checkout
        - run: sudo pip install -U -r requirements.txt
+       - run: export PYTHONPATH=`pwd`
        - run: pytest tests/
