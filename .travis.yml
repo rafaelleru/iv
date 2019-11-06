@@ -9,4 +9,4 @@ env:
   - PYTHONPATH=/home/travis/build/rafaelleru/iv/
 script:
   - ls -l
-  - pytest tests/
+  - make test

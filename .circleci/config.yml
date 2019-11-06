@@ -7,4 +7,4 @@
        - checkout
        - run: sudo pip install -U -r requirements.txt
        - run: export PYTHONPATH=`pwd`
-       - run: python -m pytest -v tests/test_task_manager.py
+       - run: make test
