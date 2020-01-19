@@ -11,7 +11,7 @@ services:
         image: python-pyramid
         build: ./docker/pyramid
         ports:
-            - "8000:80"
+            - 8000:80
         volumes:
           - ./src:/opt/stream_ai
         restart: always

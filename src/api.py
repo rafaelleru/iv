@@ -4,7 +4,7 @@ from pyramid.response import Response
 
 from pyramid.view import view_config, view_defaults
 
-from src.job import Job
+from job import Job
 
 import random
 import string
@@ -27,10 +27,19 @@ def add_job(context, request):
     response =  Response("OK", 200)
     return response
 
+@view_config(route_name='status', request_method='GET', renderer='json')
+def status(context, request):
+	# response = Response(body={'status': 'OK'})
+	# response =  Response("OK", 200)
+	# TODO: should this be a response object instead of a dict ??
+	return {'status': 'OK'}
+
+
 if __name__ == '__main__':
     with Configurator() as config:
         config.add_route('jobs_collection', '/')
         config.add_route('post_job', '/job')
+        config.add_route('status', '/status')
         config.scan()
         app = config.make_wsgi_app()
 
