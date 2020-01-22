@@ -4,8 +4,13 @@ python:
 services:
   - docker
 # command to install dependencies
+before-install:
+  - cd docker
+  - docker build -t python-pyramid .
 install:
   - pip install -r requirements.txt
+  - make run
+  - docker ps
 # command to run tests
 env:
   - PYTHONPATH=/home/travis/build/rafaelleru/iv/
