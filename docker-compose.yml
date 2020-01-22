@@ -13,10 +13,12 @@ services:
         ports:
             - 8000:80
         volumes:
-          - ./src:/opt/stream_ai
+          - ./:/opt/stream_ai
         restart: always
+        environment:
+          - PYTHONPATH=/opt/stream_ai
         # command: tail -f /dev/null
-        command: python /opt/stream_ai/api.py
+        command: python /opt/stream_ai/src/api.py
 
   # # Zookeeper and Kafka from Confluent Plaform.
   # # See: https://github.com/confluentinc/cp-docker-images/blob/3.3.x/examples/kafka-single-node/docker-compose.yml
