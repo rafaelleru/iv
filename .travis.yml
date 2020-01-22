@@ -7,6 +7,7 @@ services:
 before-install:
   - cd docker/pyramid
   - docker build -t python-pyramid .
+  - cd
 install:
   - pip install -r requirements.txt
   - make run
