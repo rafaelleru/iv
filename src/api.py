@@ -4,8 +4,9 @@ from pyramid.response import Response
 
 from pyramid.view import view_config, view_defaults
 
-from job import Job
+from src.job import Job
 
+import json
 import random
 import string
 
@@ -29,15 +30,11 @@ def add_job(context, request):
 
 @view_config(route_name='status', request_method='GET', renderer='json')
 def status(context, request):
-	# response = Response(body={'status': 'OK'})
-	# response =  Response("OK", 200)
-	# TODO: should this be a response object instead of a dict ??
-	return {'status': 'OK'}
-
+	return Response(body=json.dumps({"status": "OK"}), status=200)
 
 if __name__ == '__main__':
     with Configurator() as config:
-        config.add_route('jobs_collection', '/')
+        config.add_route('jobs_collection', '/queue')
         config.add_route('post_job', '/job')
         config.add_route('status', '/status')
         config.scan()
