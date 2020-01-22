@@ -5,7 +5,7 @@ services:
   - docker
 # command to install dependencies
 before-install:
-  - cd docker
+  - cd docker/pyramid
   - docker build -t python-pyramid .
 install:
   - pip install -r requirements.txt
