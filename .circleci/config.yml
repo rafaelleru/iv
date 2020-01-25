@@ -5,7 +5,7 @@
        - image: circleci/python:3.7.1
      steps:
        - setup_remote_docker
-       - run: docker build -t python-pyramid docker/pyramid
+       - run: docker build -t python-pyramid ./docker/pyramid
        - checkout
        - run: sudo pip install -U -r requirements.txt
        - run: export PYTHONPATH=`pwd`
