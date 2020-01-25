@@ -9,4 +9,5 @@
        - run: docker build -t python-pyramid docker/pyramid
        - run: sudo pip install -U -r requirements.txt
        - run: export PYTHONPATH=`pwd`
+       - run: make run
        - run: make test
