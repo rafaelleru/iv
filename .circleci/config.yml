@@ -3,10 +3,11 @@
    build:
      docker:
        - image: circleci/python:3.7.1
+         environment:
+           PYTHONPATH="/home/circleci/project"
      steps:
        - setup_remote_docker
        - checkout
        - run: sudo pip install -U -r requirements.txt
-       - run: export PYTHONPATH="~/project/iv/"
        - run: python3 src/api.py
        - run: make test
