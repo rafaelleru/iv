@@ -9,5 +9,5 @@
        - setup_remote_docker
        - checkout
        - run: sudo pip install -U -r requirements.txt
-       - run: python3 src/api.py
+       - run: python3 src/api.py &
        - run: make test
