@@ -6,3 +6,8 @@ stop:
 
 test:
 	python3 -m pytest tests/
+
+test-circleci:
+	python3 src/api.py &
+	python3 -m pytest tests/
+

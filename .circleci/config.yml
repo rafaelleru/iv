@@ -9,7 +9,4 @@
        - setup_remote_docker
        - checkout
        - run: sudo pip install -U -r requirements.txt
-       - run: python3 src/api.py &
-       - run: sleep 5
-       - run: ps -ax
-       - run: make test
+       - run: make test-circleci
