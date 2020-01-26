@@ -8,5 +8,7 @@
        - checkout
        - run: sudo pip install -U -r requirements.txt
        - run: export PYTHONPATH=`pwd`
+       - run: echo $PYTHONPATH
+       - run: ls
        - run: python3 src/api.py
        - run: make test
