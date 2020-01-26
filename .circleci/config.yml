@@ -6,8 +6,7 @@
      steps:
        - setup_remote_docker
        - checkout
-       - run: docker build -t python-pyramid docker/pyramid
        - run: sudo pip install -U -r requirements.txt
        - run: export PYTHONPATH=`pwd`
-       - run: make run
+       - run: python3 /opt/stream_ai/src/api.py
        - run: make test
