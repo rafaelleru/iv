@@ -37,5 +37,5 @@ Para la integración continua vamos a usar travis, no es necesario usar herramie
 
 Para configurar travis solo ha sido necesario dar de alta el proyecto en la web y añadir el repositorio, tras esto hemos añadido el archivo `.travis.yml` para ejecutar todo el proceso de integración continua en cada commit
 
-buildtool: Makefile
+buildtool: makefile
 
