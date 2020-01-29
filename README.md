@@ -44,4 +44,4 @@ Para configurar travis solo ha sido necesario dar de alta el proyecto en la web 
 
 buildtool: makefile
 
-Despliegue: https://streamai.herokuapp.com/status
+Despliegue: https://streamai.herokuapp.com
