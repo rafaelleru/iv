@@ -6,6 +6,8 @@ from pyramid.view import view_config, view_defaults
 
 from src.job import Job
 
+import os
+
 import json
 import random
 import string
@@ -33,6 +35,7 @@ def status(context, request):
 	return Response(body=json.dumps({"status": "OK"}), status=200)
 
 if __name__ == '__main__':
+	port ) os
     with Configurator() as config:
         config.add_route('jobs_collection', '/queue')
         config.add_route('post_job', '/job')
