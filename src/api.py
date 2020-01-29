@@ -32,7 +32,9 @@ def add_job(context, request):
 
 @view_config(route_name='status', request_method='GET', renderer='json')
 def status(context, request):
-	return Response(body=json.dumps({"status": "OK"}), status=200, content_type='application/json')
+	response = Response(status=200, content_type='application/json')
+	response.json_body = {"status": "OK"}
+	return response
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 8000))
