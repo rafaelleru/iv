@@ -35,7 +35,7 @@ def status(context, request):
 	return Response(body=json.dumps({"status": "OK"}), status=200)
 
 if __name__ == '__main__':
-	port ) os
+    port = int(os.environ.get('PORT', 8000))
     with Configurator() as config:
         config.add_route('jobs_collection', '/queue')
         config.add_route('post_job', '/job')
@@ -43,5 +43,5 @@ if __name__ == '__main__':
         config.scan()
         app = config.make_wsgi_app()
 
-    server = make_server('0.0.0.0', 8000, app)
+    server = make_server('0.0.0.0', port, app)
     server.serve_forever()
