@@ -37,5 +37,11 @@ Para la integración continua vamos a usar travis, no es necesario usar herramie
 
 Para configurar travis solo ha sido necesario dar de alta el proyecto en la web y añadir el repositorio, tras esto hemos añadido el archivo `.travis.yml` para ejecutar todo el proceso de integración continua en cada commit
 
+## Documentacion
+ - [tests](./doc/tests.md)
+ - [paas](./doc/paas.md)
+
+
 buildtool: makefile
 
+Despliegue: https://streamai.herokuapp.com/queue
