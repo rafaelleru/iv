@@ -40,6 +40,7 @@ Para configurar travis solo ha sido necesario dar de alta el proyecto en la web 
 ## Documentacion
  - [tests](./doc/tests.md)
  - [paas](./doc/paas.md)
+ - [provisionamiento](./doc/terraform.md)
 
 
 buildtool: makefile
