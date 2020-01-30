@@ -11,14 +11,13 @@ run-heroku:
 	python3 src/api.py
 
 push-dockers:
-	# contenedor base con las dependencias de pyramid para usar en desarrollo
 	VERSION="1.0.0"
-	docker tag python-pyramid rafaelleru/python-pyramid:$VERSION
-	docker push rafaelleru/python-pyramid:$VERSION
+	docker tag python-pyramid rafaelleru/python-pyramid:1.0.0
+	docker push rafaelleru/python-pyramid:1.0.0
 
 	VERSION="1.0.0"
-	docker tag stream-ai rafaelleru/stream-ai:$VERSION
-	docker push rafaelleru/stream-ai:$VERSION
+	docker tag stream-ai rafaelleru/stream-ai:1.0.0
+	docker push rafaelleru/stream-ai:1.0.0
 
 build-dockers:
 	cp -r src ./docker/streamai
@@ -28,3 +27,7 @@ build-dockers:
 test-circleci:
 	python3 src/api.py &
 	python3 -m pytest tests/
+
+create-gce-vm-terraform:
+	cd terraform
+	terraform apply
