@@ -10,6 +10,10 @@ test:
 run-heroku:
 	python3 src/api.py
 
+start:
+	python3 src/api.py
+
+
 push-dockers:
 	VERSION="1.0.0"
 	docker tag python-pyramid rafaelleru/python-pyramid:1.0.0
