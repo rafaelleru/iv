@@ -1,0 +1,40 @@
+---
+- name: Provision
+  hosts: all
+  remote_user: rafa
+  become: true
+
+  tasks:
+
+  - name: Update system
+    become: true
+    command: sudo apt-get update
+
+  - name: Ensure python-apt is installed
+    command: >
+      apt-get install python-apt -y -q
+      creates=/usr/share/doc/python-apt
+    become: yes
+
+  - name: Install Python3.6
+    become: true
+    command: sudo apt-get -y install python3.6
+
+  # - name: Install git
+  #   become: true
+  #   command: sudo apt-get -y install git-all
+
+  - name: Install pip
+    become: true
+    command: sudo apt-get -y install python3-venv python3-pip
+
+
+  - name: Clone my GitHub repository
+    git: repo=https://github.com/rafaelleru/iv.git dest=iv/ force=yes
+
+  - name: Install project
+    command: pip install -r iv/requirements.txt
+
+  - name: Update system again
+    become: true
+    command: sudo apt-get update

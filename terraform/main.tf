@@ -24,7 +24,7 @@ resource "google_compute_instance" "default" {
  }
 
 // Instalamos python y pyramid en la maquina, pyramid lo podemos omitir, a futuro lo instalaremos usando puppet
- metadata_startup_script = "sudo apt-get update; sudo apt-get install -yq build-essential python-pip rsync; pip install pyramid"
+ metadata_startup_script = "sudo apt-get update; sudo apt-get install -yq git build-essential python-pip rsync; pip install pyramid"
 
  network_interface {
    network = "default"

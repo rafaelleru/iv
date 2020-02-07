@@ -1,0 +1,29 @@
+---
+- name: Deploy
+  hosts: all
+  remote_user: rafa
+  become: true
+
+  tasks:
+
+  - name: remove the code
+    become: true
+    command: sudo rm -rf iv
+
+  - name: download the code
+    git: repo=https://github.com/rafaelleru/iv.git dest=iv/ force=yes
+
+  - name: install dependencies
+    become: true
+    command: pip3 install -r iv/requirements.txt
+
+  - name: stop running
+    become: true
+    ignore_errors: yes
+    shell: sudo kill -9 $(ps -A -o pid,cmd | grep gunicorn | head -n 1 | cut -d " " -f 1)
+
+  - name: run
+    make:
+           chdir: /home/rafa/iv
+           file: /home/rafa/iv/makefile
+           target: start

@@ -35,3 +35,10 @@ test-circleci:
 create-gce-vm-terraform:
 	cd terraform
 	terraform apply
+
+depliegue-gce:
+	cd terraform
+	terraform apply
+	cd ..
+	ansible-playbook provision/playbook.yml
+	ansible-playbook despliegue/deploy.yml
