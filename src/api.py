@@ -36,14 +36,15 @@ def status(context, request):
 	response.json_body = {"status": "OK"}
 	return response
 
-if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 8000))
-    with Configurator() as config:
-        config.add_route('jobs_collection', '/queue')
-        config.add_route('post_job', '/job')
-        config.add_route('status', '/status')
-        config.scan()
-        app = config.make_wsgi_app()
 
+port = int(os.environ.get('PORT', 8000))
+with Configurator() as config:
+    config.add_route('jobs_collection', '/queue')
+    config.add_route('post_job', '/job')
+    config.add_route('status', '/status')
+    config.scan()
+    app = config.make_wsgi_app()
+
+if __name__ == '__main__':
     server = make_server('0.0.0.0', port, app)
     server.serve_forever()
