@@ -11,7 +11,7 @@ run-heroku:
 	python3 src/api.py
 
 start:
-	python3 src/api.py
+	gunicorn src.api:app
 
 
 push-dockers:
