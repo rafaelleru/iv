@@ -53,4 +53,4 @@ docker-hub: https://hub.docker.com/r/rafaelleru/stream-ai
 
 provision: terraform/main.tf
 
-
+Despliegue final: 35.230.119.46
