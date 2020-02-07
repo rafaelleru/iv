@@ -4,8 +4,6 @@ from pyramid.response import Response
 
 from pyramid.view import view_config, view_defaults
 
-from src.job import Job
-
 import os
 
 import json
